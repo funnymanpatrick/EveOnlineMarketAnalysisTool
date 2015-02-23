@@ -23,8 +23,4 @@ with open('dict.csv', 'ab') as csvfile:
                     s += l[i] + " "
                 writer.writerow([l[0], s])
 
-#for item in sorted(items):
-    #print item, ":", items[item]
-    
-#print len(items)
 print "done"
