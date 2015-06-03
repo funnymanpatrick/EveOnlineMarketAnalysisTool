@@ -23,9 +23,15 @@ Tools:
 	donchian channel
 	margin
 	average volume
-	average volume per order
 	price history
 	margin history
 	margin - taxes
 	high price history
 	low price history
+
+Technologies used:
+    Javascript
+    Typescript
+    Node.js
+    MongoDB
+    Python (to get started)
