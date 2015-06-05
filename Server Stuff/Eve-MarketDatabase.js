@@ -198,7 +198,13 @@ function onComplete(collection) {
 }
 
 function doWork(item, collection){
-    var url = "http://api.eve-central.com/api/marketstat/json?typeid=" + myData[item].FIELD1;
+    //Jita - 30000142
+    //Amarr - 30002187
+    //Rens - 30002510
+    //Dodixie - 30002659
+    //Hek - 30002053
+    var url = "http://api.eve-marketdata.com/api/item_history2.json?char_name=Patrick_Crockett&
+    region_ids=30000142,30002187,30002510,30002659,30002053&type_ids=" + myData[item].FIELD1 + "&days=365";
     numRequests += 1;
     request({
             url: url,
