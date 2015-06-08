@@ -203,8 +203,10 @@ function doWork(item, collection){
     //Rens - 30002510
     //Dodixie - 30002659
     //Hek - 30002053
+    //All - 10000002
+    //Individual regions don't seem to be working just All
     var url = "http://api.eve-marketdata.com/api/item_history2.json?char_name=Patrick_Crockett&
-    region_ids=30000142,30002187,30002510,30002659,30002053&type_ids=" + myData[item].FIELD1 + "&days=365";
+    region_ids=10000002&type_ids=" + myData[item].FIELD1 + "&days=365";
     numRequests += 1;
     request({
             url: url,
