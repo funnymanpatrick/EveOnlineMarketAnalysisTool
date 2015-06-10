@@ -12,11 +12,13 @@ with open('item34.json') as data_file:
 results = data['emd']['result']
 csv_data = csv.writer(open('example.csv','wb+'))
 #typeID,regionID,date,lowPrice,highPrice,avgPrice,volume,orders
-csv_data.writerow("date,highPrice,lowPrice,avgPrice".split(','))
+csv_data.writerow("date,highPrice,lowPrice,avgPrice,orders,volume".split(','))
 for item in results:
 	data_row = []
 	data_row.append(item['row']['date'])
 	data_row.append(float(item['row']['highPrice']))
 	data_row.append(float(item['row']['lowPrice']))
 	data_row.append(float(item['row']['avgPrice']))
+	data_row.append(int(item['row']['orders']))
+	data_row.append(int(item['row']['volume']))
 	csv_data.writerow(data_row)

@@ -1,0 +1,5 @@
+Moving avg: 5d,20d
+Median Day Price --> Replace with avg
+Donchian Channel
+Tickers for high and low
+Volume bargraph
