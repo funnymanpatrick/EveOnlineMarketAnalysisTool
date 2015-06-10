@@ -220,7 +220,7 @@ var MongoClient = require('mongodb').MongoClient, format = require('util').forma
 var numRequests = 0;
 
 function onComplete(collection) {
-    //console.log("onComplete called: numRequests =", numRequests);
+    console.log("onComplete called: numRequests =", numRequests);
     numRequests -= 1;
     
     if (numRequests > 0) {
@@ -243,58 +243,39 @@ function onComplete(collection) {
 }
 
 function doWork(item, collection){
-    var url = "http://api.eve-central.com/api/marketstat/json?typeid=" + myData[item].FIELD1;
+    //Jita(The Forge) - 10000002
+    //Amarr(Domain) - 10000043
+    //Rens(Heimatar) - 10000030
+    //Dodixie(Sinq Laison) - 10000032
+    //Hek(Metropolis) - 10000042
+    var url = "http://api.eve-marketdata.com/api/item_history2.json?char_name=Patrick_Crockett&region_ids=10000002,10000043,10000030,10000032,10000042&type_ids=" + myData[item].FIELD1 + "days=365";
     numRequests += 1;
+    //console.log(" "+myData[item].FIELD1);
     request({
             url: url,
             json: true
         }, function (error, response, body) {
             if (!error && response.statusCode === 200) {
-                var data = body[0];
-                collection.update(
-                    { "_id": myData[item].FIELD1 },
-                    {
-                        $set: {
-			    "Name":myData[item].FIELD2,
+                var data = body.emd;
+                //console.log(myData[item].FIELD1);
+                if(typeof data.result[0] != 'undefined'){
+                    collection.update(
+                        { "_id": myData[item].FIELD1 },
+                        {
+                            $set: {
+                    "Name":myData[item].FIELD2,
+                                "Date":data.result[0].row.date,
+                                "Low Price":parseInt(data.result[0].row.lowPrice),
+                                "High Price":parseInt(data.result[0].row.highPrice),
+                                "Average Price":parseInt(data.result[0].row.avgPrice),
+                                "Volume":parseInt(data.result[0].row.volume),
+                                "Orders":parseInt(data.result[0].row.orders)
+                                }
+                        
+                        }, {upsert:true}
 
-                            "Buy":{
-                                "Volume":data.buy.volume,
-                                "Weighted Average":data.buy.wavg,
-                                "Unweighted Average":data.buy.avg,
-                                "Variance":data.buy.variance,
-                                "Standard Deviation":data.buy.stdDev,
-                                "Median":data.buy.median,
-                                "Max":data.buy.max,
-                                "Min":data.buy.min
-                            },
-                            "Sell":{
-                                "Volume":data.sell.volume,
-                                "Weighted Average":data.sell.wavg,
-                                "Unweighted Average":data.sell.avg,
-                                "Variance":data.sell.variance,
-                                "Standard Deviation":data.sell.stdDev,
-                                "Median":data.sell.median,
-                                "Max":data.sell.max,
-                                "Min":data.sell.min
-                            },
-                            "All":{
-                                "Volume":data.all.volume,
-                                "Weighted Average":data.all.wavg,
-                                "Unweighted Average":data.all.avg,
-                                "Variance":data.all.variance,
-                                "Standard Deviation":data.all.stdDev,
-                                "Median":data.all.median,
-                                "Max":data.all.max,
-                                "Min":data.all.min
-                            },
-                            "Stats":{
-                                "Static Margin":staticMargin(data.all.max,data.all.min),
-                                "Real Margin":staticRealMargin(data.buy.avg,data.sell.avg)
-                            },
-                        }
-                    }, {upsert:true}
-
-                );
+                    );
+                }
             }
             onComplete(collection);
             }

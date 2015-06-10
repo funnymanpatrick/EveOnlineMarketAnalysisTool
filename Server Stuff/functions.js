@@ -141,3 +141,84 @@ function peRatio(prices)
 	PE = prices[prices.length - 1] / (prices[prices.length - 1] - prices[0]);
 	return PE;
 }
+
+function Donchian(highs,lows,daycount,range)
+{
+	//Result[0] is donchian high
+	//Result[1] is donchian low
+	//Result[2] is donchian middle
+	//Used to generate a donchian channel
+	//Range is the ammount of days to look back for mins/maxs
+	if (highs.length < daycount || lows.length < daycount) return false;
+	var result;
+	var temp=highs[daycount];
+	for (var i = Math.min(0,daycount-range);i<daycount;i++)
+	{
+		temp=Math.max(temp,highs[i]);
+	}
+	result[0]=temp;
+	temp=lows[daycount];
+	for (var i = Math.min(0,daycount-range);i<daycount;i++)
+	{
+		temp=Math.min(temp,lows[i]);
+	}
+	result[1]=temp;
+	result[2]=(result[0]+result[1])/2;
+	return result;
+}
+
+function DonchianChannel(highs,lows,range)
+{	
+	var rhighs;
+	var rlows;
+	var rmids;
+	var result;
+	for(var i = 0; i < Math.min(highs.length,lows.length);i++)
+	{
+		var temp = Donchain(highs,lows,i,range);
+		rhighs[rhighs.length]=temp[0];
+		rlows[rlows.length]=temp[1];
+		rmids[rmids.lenth]=temp[2];
+	}
+	result[0]=rhighs;
+	result[1]=rlows;
+	result[2]=rmids;
+	return result;
+}
+
+function ema(prices,days)
+{
+	//short = 12,26
+	//long = 50,200
+	if(prices.length<days+1) return false;
+	var results;
+	var k = 2 / (days+1);
+	results[0]=prices[0];
+	for(var i = 1; i < prices.length;i++)
+	{
+		if(i<=days)
+		{
+			results[i]=prices[i]*k+prices[i-1]*(1-k);
+		}
+		else
+		{
+			results[i]=prices[i]*k+results[i-1]*(1-k);
+		}
+	}
+	return results;
+}
+
+function sma(prices,days)
+{
+	//short = 12,26
+	//long = 50,200
+	var results;
+	var lastdays;
+	if(prices.length<days+1) return false;
+	for(var i = 0; i < prices.length;i++)
+	{
+		lastdays[i%days] = prices[i];
+		results[i] = avg(lastdays);
+	}
+	return results;
+}
