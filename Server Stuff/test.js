@@ -162,51 +162,6 @@ function peRatio(prices)
     return PE;
 }
 
-
-function Donchian(highs,lows,daycount,range)
-{
-    //Result[0] is donchian high
-    //Result[1] is donchian low
-    //Result[2] is donchian middle
-    //Used to generate a donchian channel
-    //Range is the ammount of days to look back for mins/maxs
-    if (highs.length < daycount || lows.length < daycount) return false;
-    var result;
-    var temp=highs[daycount];
-    for (var i = Math.min(0,daycount-range);i<daycount;i++)
-    {
-        temp=Math.max(temp,highs[i]);
-    }
-    result[0]=temp;
-    temp=lows[daycount];
-    for (var i = Math.min(0,daycount-range);i<daycount;i++)
-    {
-        temp=Math.min(temp,lows[i]);
-    }
-    result[1]=temp;
-    result[2]=(result[0]+result[1])/2;
-    return result;
-}
-
-function DonchianChannel(highs,lows,range)
-{   
-    var rhighs;
-    var rlows;
-    var rmids;
-    var result;
-    for(var i = 0; i < Math.min(highs.length,lows.length);i++)
-    {
-        var temp = Donchain(highs,lows,i,range);
-        rhighs[rhighs.length]=temp[0];
-        rlows[rlows.length]=temp[1];
-        rmids[rmids.lenth]=temp[2];
-    }
-    result[0]=rhighs;
-    result[1]=rlows;
-    result[2]=rmids;
-    return result;
-}
-
 //End of Functions
 
 //MongoDB Update code
@@ -220,7 +175,7 @@ var MongoClient = require('mongodb').MongoClient, format = require('util').forma
 var numRequests = 0;
 
 function onComplete(collection) {
-    console.log("onComplete called: numRequests =", numRequests);
+    //console.log("onComplete called: numRequests =", numRequests);
     numRequests -= 1;
     
     if (numRequests > 0) {
@@ -234,12 +189,13 @@ function onComplete(collection) {
             console.dir(results);
             db.close();
         }
-    });*/
+    });
     collection.findOne({_id:18}, function(err, results){
        if(!err){
           console.dir(results);
       }
     });
+    */
 }
 
 function doWork(item, collection){
@@ -248,33 +204,32 @@ function doWork(item, collection){
     //Rens(Heimatar) - 10000030
     //Dodixie(Sinq Laison) - 10000032
     //Hek(Metropolis) - 10000042
-    var url = "http://api.eve-marketdata.com/api/item_history2.json?char_name=Patrick_Crockett&region_ids=10000002,10000043,10000030,10000032,10000042&type_ids=" + myData[item].FIELD1 + "days=365";
+    var url = "http://api.eve-marketdata.com/api/item_history2.json?char_name=Patrick_Crockett&region_ids=10000002,10000043,10000030,10000032,10000042&type_ids=" + myData[item].FIELD1+"&days=365";
     numRequests += 1;
-    //console.log(" "+myData[item].FIELD1);
+    //console.log(myData[item].FIELD1);
     request({
             url: url,
             json: true
         }, function (error, response, body) {
             if (!error && response.statusCode === 200) {
                 var data = body.emd;
-                //console.log(myData[item].FIELD1);
-                if(typeof data.result[0] != 'undefined'){
-                    collection.update(
-                        { "_id": myData[item].FIELD1 },
-                        {
-                            $set: {
-                    "Name":myData[item].FIELD2,
-                                "Date":data.result[0].row.date,
-                                "Low Price":parseInt(data.result[0].row.lowPrice),
-                                "High Price":parseInt(data.result[0].row.highPrice),
-                                "Average Price":parseInt(data.result[0].row.avgPrice),
-                                "Volume":parseInt(data.result[0].row.volume),
-                                "Orders":parseInt(data.result[0].row.orders)
+                for(var i = 0; i < data.result.length; i++){
+                    if(typeof data.result[i].row != 'undefined'){
+                        collection.update(
+                            { "_id": data.result[i].row.date},
+                            {
+                                $set: {
+                                    "Name":myData[item].FIELD2,
+                                    "Region":parseInt(data.result[i].row.regionID),
+                                    "Low Price":parseInt(data.result[i].row.lowPrice),
+                                    "High Price":parseInt(data.result[i].row.highPrice),
+                                    "Average Price":parseInt(data.result[i].row.avgPrice),
+                                    "Volume":parseInt(data.result[i].row.volume),
+                                    "Orders":parseInt(data.result[i].row.orders)
                                 }
-                        
-                        }, {upsert:true}
-
-                    );
+                            }, {upsert:true}
+                        );
+                    }
                 }
             }
             onComplete(collection);
@@ -286,8 +241,9 @@ MongoClient.connect('mongodb://localhost:27017/database', function (err, db) {
     if(err){
         throw err;
     }
-    var collection = db.collection('items');
+    
     for(var item in myData){
+        var collection = db.collection(item);
         doWork(item, collection);
     }
     
