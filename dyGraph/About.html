@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<script type="text/javascript"
-	  src="dygraph-combined-dev.js"></script>
 	<link rel="stylesheet" href="bootstrap.css">
 	<link rel="stylesheet" href="main.css">
 </head>
@@ -12,11 +10,11 @@
 		<div class="row-fluid">
 			<div class="nav">
 				<ul class="nav nav-pills">
-					<li class ="active">
-						<a href="#">Home</a>
-					</li>
 					<li>
-						<a href="About.html">About</a>
+						<a href="test.html">Home</a>
+					</li>
+					<li class ="active">
+						<a href="#">About</a>
 					</li>
 					<li>
 						<a href="Contact_Us.html">Contact Us</a>
@@ -28,29 +26,21 @@
 		</div>
 		<div class="main">
 			<div class="row-fluid">
-				<div class="col-md-1">
-					<div class="check_boxes">
-						<p><strong>Show Series:</strong></p>
-							<input id="0" checked="checked" onclick="change(this)" type="checkbox">
-							<label for="0"> High</label><br>
-							<input id="1" checked="checked" onclick="change(this)" type="checkbox">
-							<label for="1"> Low</label><br>
-							<input id="2" checked="checked" onclick="change(this)" type="checkbox">
-							<label for="2"> Avg</label><br>
-						</p>
-					</div>
-				</div>
-				<div class="col-md-8">
-					<div id="graphdiv"></div>
-						<script type="text/javascript" 
-						  src="graph.js"></script>
+				<div class="col-md-6">
+					<p>This tool uses information gathered from <a href="http://www.eve-marketdata.com">EVE MarketData</a>
+					to a variety of economical trends for different resources in the game
+					<a href="http://www.eveonline.com">EVE Online</a>. The project is still under 
+					development with a group at RPI's 
+					<a href="http://www.rcos.rpi.edu">Center for Open Source Software</a> and many
+					features are still underdevelopment.
+					</p>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 </body>
-<footer class="footer">
+<footer>
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="col-md-8">

@@ -1,0 +1,25 @@
+#all {
+	background-color:#AFAFAF;
+	color:#000000;
+}
+html {
+	background-color:#AFAFAF;
+	color:#000000;
+}
+.jumbotron {
+	background-image:url('EVE_online_MAT_logo.svg.png');
+	height: 200px;
+	width: 758px;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.nav a {
+	color:#3F3F3F;
+}
+footer{
+	background-color:#AFAFAF;
+	color:#000000;
+	position:fixed;
+	bottom:0px;
+	font-size:10px;
+}
