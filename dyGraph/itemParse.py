@@ -6,11 +6,11 @@ from pprint import pprint
 
 #http://api.eve-marketdata.com/api/item_history2.json?char_name=demo&region_ids=10000002&type_ids=34,456
 #Add feasible item ID's to end of url
-with open('item34.json') as data_file:
+with open('item18.json') as data_file:
 	data = json.load(data_file)
 #Dict of relevant data
 results = data['emd']['result']
-csv_data = csv.writer(open('example.csv','wb+'))
+csv_data = csv.writer(open('item18.csv','wb+'))
 #typeID,regionID,date,lowPrice,highPrice,avgPrice,volume,orders
 csv_data.writerow("date,highPrice,lowPrice,avgPrice,orders,volume".split(','))
 for item in results:
