@@ -5,7 +5,7 @@ g = new Dygraph(
     "item18.csv",
     {
         //Formatting options
-        title:"Relevant Title",
+        title:"Title",
         xlabel:"Date",
         ylabel:"Price",
         y2label:"Volume",
