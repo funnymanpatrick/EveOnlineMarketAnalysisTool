@@ -1,0 +1,42 @@
+body {
+	background-color:#AFAFAF;
+	color:#000000;
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+#all {
+	background-color:#AFAFAF;
+	color:#000000;
+	min-height:100%;
+	position:relative;
+}
+html {
+	background-color:#AFAFAF;
+	color:#000000;
+}
+.jumbotron {
+	background-image:url('EVE_online_MAT_logo.svg.png');
+	height: 200px;
+	width: 758px;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.nav a {
+	color:#3F3F3F;
+}
+#main{
+}
+
+#graph{
+	padding-bottom:175px;
+}
+
+#footer{
+	background-color:#AFAFAF;
+	color:#000000;
+	font-size:10px;
+	position:absolute;
+	bottom:0px;
+}
