@@ -1,6 +1,10 @@
 html,
 body {
+<<<<<<< HEAD
 	background-image:url('EVE_Online_Fansite_Kits/Backgrounds/Amarr.jpg');
+=======
+	background-color:#AFAFAF;
+>>>>>>> origin/Web
 	color:#000000;
 	margin:0;
 	padding:0;
@@ -16,6 +20,10 @@ body {
 	padding-bottom:175px;
 }
 #footer {
+<<<<<<< HEAD
+=======
+	background-color:#AFAFAF;
+>>>>>>> origin/Web
 	color:#000000;
 	font-size:10px;
 	height:175px;
