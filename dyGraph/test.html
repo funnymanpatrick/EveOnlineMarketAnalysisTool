@@ -1,33 +1,98 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>dyGraph Test Page | Butts No Mas</title>
+	<script type="text/javascript"
+	  src="dygraph-combined-dev.js"></script>
+	<link rel="stylesheet" href="bootstrap.css">
+	<link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div id="graphdiv" style="float:left; width:750px; height:550px"></div>
-  
-    <p>
-        <strong>Show Series:</strong>
-    </p>
-    <p>
-        <input id="0" name="Price" checked="checked" onclick="change(this)" autocomplete="off" type="checkbox">
-        <label for="0"> High</label>
-        <br />
-        <input id="1" name="Price" checked="checked" onclick="change(this)" autocomplete="off" type="checkbox">
-        <label for="1"> Low</label>
-        <br />
-        <input id="2" name="Price" checked="checked" onclick="change(this)" autocomplete="off" type="checkbox">
-        <label for="2"> Avg</label>
-        <br />
-        <input id="3" name="Orders" onclick="change(this)" autocomplete="off" type="checkbox">
-        <label for="3"> Orders</label>
-        <br />
-        <input id="4" name="Volume" checked="checked" onclick="change(this)" autocomplete="off" type="checkbox">
-        <label for="4"> Volume</label>
-        <br />
-    </p>
-
-    <script type="text/javascript" src="dygraph-combined-dev.js"></script>
-    <script type="text/javascript" src="graph.js"></script>
-
+<div id="all">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="nav">
+				<ul class="nav nav-pills">
+					<li class ="active">
+						<a href="#">Home</a>
+					</li>
+					<li>
+						<a href="About.html">About</a>
+					</li>
+					<li>
+						<a href="Contact_Us.html">Contact Us</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="jumbotron">
+		</div>
+		<div class="main">
+			<div class="row-fluid">
+				<div class="col-md-1">
+					<div class="check_boxes">
+						<p><strong>Show Series:</strong></p>
+							<input id="0" checked="checked" onclick="change(this)" type="checkbox">
+							<label for="0"> High</label><br>
+							<input id="1" checked="checked" onclick="change(this)" type="checkbox">
+							<label for="1"> Low</label><br>
+							<input id="2" checked="checked" onclick="change(this)" type="checkbox">
+							<label for="2"> Avg</label><br>
+							<input id="3" name="Orders" onclick="change(this)" autocomplete="off" type="checkbox">
+        					<label for="3"> Orders</label>
+        					<br />
+        					<input id="4" name="Volume" onclick="change(this)" autocomplete="off" type="checkbox">
+        					<label for="4"> Volume</label>
+        					<br />
+						</p>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div id="graphdiv"></div>
+						<script type="text/javascript">
+							//Keep until can get search result
+							var _args = {};
+        					var MYLIBRARY = MYLIBRARY || (function(){
+            					return{
+					                init: function(Args){
+					                    _args = Args;
+					                    return _args[0];
+					                },
+					                //Used for debugging
+					                helloWorld: function(){
+					                    alert("helloWorld"+ _args[0]);
+					                }
+            					};
+        					}());
+        					var item_csv = MYLIBRARY.init(["item18.csv"]);
+    					</script>
+						<script type="text/javascript" src="graph.js"></script>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
+<footer class="footer">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="col-md-8">
+				<br><p>Eve Online Market Analysis Tool<br>
+				Copyright (C) 2015  Eve Online Market Analysis Tool Team
+				<br><br>
+				This program is free software: you can redistribute it and/or modify
+				it under the terms of the GNU General Public License as published by
+				the Free Software Foundation, either version 3 of the License, or
+				(at your option) any later version.
+				<br><br>
+				This program is distributed in the hope that it will be useful,
+				but WITHOUT ANY WARRANTY; without even the implied warranty of
+				MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+				GNU General Public License for more details.
+				<br><br>
+				You should have received a copy of the GNU General Public License
+				along with this program.  If not, see <a href="http://www.gnu.org/licenses/">GNU Licenses</a>.<p>
+			</div>
+		</div>
+	</div>
+</footer>
 </html>
