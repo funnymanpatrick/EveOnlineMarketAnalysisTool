@@ -1,36 +1,33 @@
 html,
 body {
-<<<<<<< HEAD
 	background-image:url('EVE_Online_Fansite_Kits/Backgrounds/Amarr.jpg');
-=======
-	background-color:#AFAFAF;
->>>>>>> origin/Web
+	background-repeat:no-repeat;
+	background-attachment:fixed;
 	color:#000000;
 	margin:0;
 	padding:0;
 	height:100%;
 }
 #all {
-	color:#000000;
 	min-height:100%;
 	position:relative;
 }
 #main {
 	padding-top:75px;
 	padding-bottom:175px;
+	background-color:rgba(255, 255, 255, .75);
 }
 #footer {
-<<<<<<< HEAD
-=======
-	background-color:#AFAFAF;
->>>>>>> origin/Web
-	color:#000000;
 	font-size:10px;
 	height:175px;
 	position:absolute;
 	bottom:0;
 }
-.jumbotron {
+#graphdiv {
+	height:550px;
+	width:750px;
+}
+#logo {
 	background:transparent url('EVE_online_MAT_logo.png');
 	height: 200px;
 	width: 758px;
@@ -38,7 +35,7 @@ body {
 	background-size: cover;
 }
 .nav a {
-	color:#3F3F3F;
+	color:#FFFFFF;
 }
 .nav {
 	position:fixed;

@@ -2,10 +2,10 @@ g = new Dygraph(
     // Containing div
     document.getElementById("graphdiv"),
     // CSV file path
-    "example.csv",
+    item_csv,
     {
         // Formatting options
-        title:"Item 34",
+        title:item_csv.substring(0,item_csv.indexOf(".csv")),
         xlabel:"Date",
         ylabel:"Price",
         y2label:"",

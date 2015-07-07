@@ -24,16 +24,15 @@
 				</ul>
 			</div>
 		</div>
-<<<<<<< HEAD
 		<div id="main">
-			<div class="jumbotron">
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-8">
+					<div id="logo"></div>
+				</div>
 			</div>
 			<div class="row">
-=======
-		<div class="jumbotron">
-		</div>
-		<div class="main">
-			<div class="row-fluid">
+				<div class="col-md-1"></div>
 				<div class="col-md-8">
 					<div class="search">
 						<form action="welcome_test.php" method="post">
@@ -54,9 +53,12 @@
 								<input id="market4" onclick="change(this)" type="checkbox">
 								<label for="market4"> Metropolis (Hek) </label><br><br><br>
 						</form>
-			<div class="row-fluid">
->>>>>>> origin/Web
-				<div class="col-md-1">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-2">
 					<div class="check_boxes">
 						<p><strong>Show Series:</strong></p>
 							<input id="0" checked="checked" onclick="change(this)" type="checkbox">
@@ -65,6 +67,10 @@
 							<label for="1"> Low</label><br>
 							<input id="2" checked="checked" onclick="change(this)" type="checkbox">
 							<label for="2"> Avg</label><br>
+							<input id="3" name="Orders" onclick="change(this)" autocomplete="off" type="checkbox">
+        					<label for="3"> Orders</label><br>
+        					<input id="4" name="Volume" onclick="change(this)" autocomplete="off" type="checkbox">
+        					<label for="4"> Volume</label><br>
 						</p>
 					</div>
 				</div>
@@ -77,6 +83,7 @@
 		</div>
 		<div id="footer">
 			<div class="row">
+				<div class="col-md-1"></div>
 				<div class="col-md-8">
 					<br><p>Eve Online Market Analysis Tool<br>
 					Copyright (C) 2015  Eve Online Market Analysis Tool Team
