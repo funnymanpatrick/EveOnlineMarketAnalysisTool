@@ -3,19 +3,23 @@ body {
 	background-image:url('EVE_Online_Fansite_Kits/Backgrounds/Amarr.jpg');
 	background-repeat:no-repeat;
 	background-attachment:fixed;
+	background-size:cover;
 	color:#000000;
 	margin:0;
 	padding:0;
 	height:100%;
 }
+.a {
+	color:000099;
+}
 #all {
 	min-height:100%;
 	position:relative;
+	background-color:rgba(255, 255, 255, .6);
 }
 #main {
 	padding-top:75px;
 	padding-bottom:175px;
-	background-color:rgba(255, 255, 255, .75);
 }
 #footer {
 	font-size:10px;
@@ -35,7 +39,7 @@ body {
 	background-size: cover;
 }
 .nav a {
-	color:#FFFFFF;
+	color:#000000;
 }
 .nav {
 	position:fixed;
