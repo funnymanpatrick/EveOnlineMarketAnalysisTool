@@ -1,0 +1,77 @@
+
+
+function dauchian_channel(parsed_data_base_stuff, days) {
+	//parsed data base stuff will high and lows alternating
+	var high=0;
+	var low=0;
+	var 5DayHigh[];
+	var 5DayLow[];
+	var highlows[days*2];
+	for(var i=0;i<parsed_data_base_stuff.length();i++) {
+		if(high==0 and low==0) {
+			high=parsed_data_base_stuff[i];
+			highlows.push(high);
+		}
+		else if(i%2!=0) {
+			high=parsed_data_base_stuff[i];
+			if(5DayHigh.length!=5) {
+				5DayHigh.push(high);
+				highlows.push(findHighLow(5DayHigh));
+			}
+			else{
+				//function to shift values over because you only look at 5 day High
+				5DayHigh=newHighLow(5DayHigh);
+				highlows.push(findHighLow(5DayHigh));
+			}
+		}
+		else {
+			low=parsed_data_base_stuff[i];
+			if(5DayLow.length!=5) {
+				5DayLow.push(low);
+				highlows.push(findHighLow(5DayLow));
+			}
+			else{
+				//function to shift values over because you only look at 5 day High
+				5DayLow=newHighLow(5DayLow);
+				highlows.push(findHighLow(5DayLow));
+			}
+		}
+	}
+	highlows.push(high);
+	highlows.push(low)
+	return highlows[];
+}
+
+function weighted_mean(data_base_item) {
+	var averages[];
+	var weighted_averages[];
+	//function made by Barry to parse database averages
+	averages=barry_data_base_function;
+	var weighted_mean_divider=0;
+	var weighted_mean_number=0;
+	for(var i=0;i<averages.length;i++) {
+		weighted_averages[i]=(averages[i]*(i*.1));
+		weighted_mean_divider+=(i*.1);
+		weighted_mean_number=(averages[i]*(i*.1));
+	}
+	var weighted_total= weighted_mean_number/weighted_mean_divider;
+	return weighted_total;
+}
+
+function newHighLow(dailyHighsLows[]) {
+	var newHigh[5];
+	for(int i=1;i<5;i++) {
+		newHigh.push(dailyHighsLows[i]);
+	}
+	return newHigh;
+}
+
+function findHighLow(dailyHighsLows[]) {
+	var number=0;
+	for(int i=0;i<dailyHighsLows.length;i++) {
+		if(dailyHighsLows[i]>number) {
+			number=dailyHighsLows[i];
+		}
+	}
+	return number;
+}
