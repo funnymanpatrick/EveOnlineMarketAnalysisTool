@@ -38,11 +38,9 @@ function change(el) {
     // Sets visibility of element
     g.setVisibility(parseInt(el.id), el.checked);
     // Shows Orders
-    if(parseInt(el.id)==3){
+    if(parseInt(el.id) == 3){
         if(el.checked){
-            g.updateOptions({y2label:"Orders",dateWindow:[g.xAxisExtremes()[0]-32400000,g.xAxisExtremes()[1]+32400000],
-                axes:{y2:{axisLabelFontSize:14}}});
-            //console.log(document.getElementsByName("Price"));
+            g.updateOptions({dateWindow:[g.xAxisExtremes()[0]-32400000,g.xAxisExtremes()[1]+32400000]});
             if(document.getElementById("4").checked)
             {
                 document.getElementById("4").checked = false;
@@ -50,10 +48,10 @@ function change(el) {
             }
 
             // Full scaling if all prices unchecked
-            if(!document.getElementById("0").checked && !document.getElementById("1").checked && !document.getElementById("2").checked)
+            /*if(!document.getElementById("0").checked && !document.getElementById("1").checked && !document.getElementById("2").checked)
             {
                 g.updateOptions({series:{orders:{plotter:barChartPlotter}}});
-            }
+            }*/
         }
         else{
             // Reset y2label and visible x-axis range
@@ -64,8 +62,7 @@ function change(el) {
     // Shows Volume
     if(parseInt(el.id) == 4){
         if(el.checked){
-            g.updateOptions({y2label:"Volume",dateWindow:[g.xAxisExtremes()[0]-32400000,g.xAxisExtremes()[1]+32400000],
-                axes:{y2:{axisLabelFontSize:14}}});
+            g.updateOptions({dateWindow:[g.xAxisExtremes()[0]-32400000,g.xAxisExtremes()[1]+32400000]});
             if(document.getElementById("3").checked)
             {
                 document.getElementById("3").checked = false;
