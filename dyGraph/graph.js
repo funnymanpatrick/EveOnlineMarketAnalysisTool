@@ -2,10 +2,10 @@ g = new Dygraph(
     // Containing div
     document.getElementById("graphdiv"),
     // CSV file path
-    "example.csv",
+    "item18.csv",
     {
         // Formatting options
-        title:"Item 34",
+        title:"Item 18",
         xlabel:"Date",
         ylabel:"Price",
         y2label:"",
@@ -50,10 +50,10 @@ function change(el) {
             }
 
             // Full scaling if all prices unchecked
-            /*if(!document.getElementById("0").checked && !document.getElementById("1").checked && !document.getElementById("2").checked)
+            if(!document.getElementById("0").checked && !document.getElementById("1").checked && !document.getElementById("2").checked)
             {
                 g.updateOptions({series:{orders:{plotter:barChartPlotter}}});
-            }*/
+            }
         }
         else{
             // Reset y2label and visible x-axis range
@@ -70,6 +70,12 @@ function change(el) {
             {
                 document.getElementById("3").checked = false;
                 g.setVisibility("3",false);
+            }
+						
+						// Full scaling if all prices unchecked
+            if(!document.getElementById("0").checked && !document.getElementById("1").checked && !document.getElementById("2").checked)
+            {
+                g.updateOptions({series:{volume:{plotter:barChartPlotter}}});
             }
         }
         else{
