@@ -1,7 +1,7 @@
-#Parse json(given a specific format) into a csv file
+#Parse JSON(given a specific format) into a CSV file
 import json
 import csv
-#Used to print to console
+#Used to print to console (used for debugging)
 from pprint import pprint
 
 #http://api.eve-marketdata.com/api/item_history2.json?char_name=demo&region_ids=10000002&type_ids=34,456
@@ -13,6 +13,9 @@ results = data['emd']['result']
 csv_data = csv.writer(open('datacsv.csv','wb+'))
 #typeID,regionID,date,lowPrice,highPrice,avgPrice,volume,orders
 csv_data.writerow(data['emd']['columns'].split(','))
+#Loop through results
+#Append data to data_row
+#Write row to file
 for item in results:
 	data_row = []
 	data_row.append(item['row']['typeID'])
