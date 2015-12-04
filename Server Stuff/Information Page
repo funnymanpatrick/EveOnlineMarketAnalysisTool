@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+		<title></title>
+	</head>
+	<body>
+		<div id="header">
+			<p id="name">Eve Online</p>
+			<a href="mainpage.com"><p id="email">Home Page</p></a>
+		</div>
+		<div class="left"></div>
+		<div class="right">
+		<h4>About us</h4>
+		<p>Copyright (C) 2015  Eve Online Market Analysis Tool Team
+-
+-    This program is free software: you can redistribute it and/or modify
+-    it under the terms of the GNU General Public License as published by
+-    the Free Software Foundation, either version 3 of the License, or
+-    (at your option) any later version.
+-
+-    This program is distributed in the hope that it will be useful,
+-    but WITHOUT ANY WARRANTY; without even the implied warranty of
+-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-    GNU General Public License for more details.
+-
+-    You should have received a copy of the GNU General Public License
+-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    </h4>
+			<h4>Objective</h4>
+			<p>To deliver a marketing tool that will help players make informed market decisions</p>
+			<h4>What to expect</h4>
+			<ul>
+				<li>Dauchian Channel calculations</li>
+				<li>Predictive Formulas</li>
+				<li>Showing of order history</li>
+				<li>Showing of volume available</li>
+				<li>Best times to invest*</li>
+				<li>A better understanding of the games economy</li>
+				<li>Better investment</li>
+				<li>A tool that is updated to market prices daily</li>
+			</ul>
+			<h4>What not to expect</h4>
+			<ul>
+			  <li>100% accuracy with market predictions</li>
+			  <li>*Not guaranteed</li>
+			<h4>Contributors</h4>
+			<p>Barry Hu</p>
+			<p>Chris Valmas</p>
+			<h4>Predictive Formulas</h4>
+			<ul>
+				<li>Dauchain Channel</li>
+				<li>Home made prediction formula</li>
+				<li>Orders versus Shares and when to buy</li>
+				<li>Weighted Avg versus price</li>
+				<li>General price predictions</li>
+			</ul>
+		</div>
+		<div id="footer">
+			<p><a href=`Rcos.io`>Rcos Home Page</a>, Eve Online Market Analysis, Barry Hu and Chris Valmas </p>
+		</div>
+	</body>
+</html>
